@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: release1.0.0
+      author: marc
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: NVARCHAR(100)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: NVARCHAR(200)
+
+  - changeSet:
+      id: release1dev
+      author: marc
+      context: dev
+      changes:
+        - sql:
+            sql: |
+              insert into customers (id, name)
+              values ('JB', 'Jeroen B.'), ('JG', 'Jeroen G.');
