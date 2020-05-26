@@ -1,7 +1,4 @@
 
 spring:
-  h2:
-    console:
-      enabled: false
   liquibase:
     contexts: prod

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: release1.0.1
+      author: marc
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: naam
+                  type: NVARCHAR(100)
+            tableName: customers
+        - sql:
+            update customers
+            set naam = name;
+
+  - changeSet:
+      id: release1.0.1.dev
+      author: marc
+      context: dev
+      changes:
+        - sql:
+            sql: |
+              insert into customers (id, naam) values ('BH', 'Bart H.');
+
+              insert into customers (id, naam) values ('PD', 'Paul D.');
